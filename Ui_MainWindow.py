@@ -2,6 +2,7 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 import sys
+import threading
 
 class Ui_MainWindow():
     
@@ -153,6 +154,3 @@ class Ui_MainWindow():
 
     def afiseazaInTimpReal(self,text):
         self.label_status.setText(text)
-
-
-    
