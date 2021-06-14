@@ -10,7 +10,7 @@ class Ui_MainWindow():
 
     def __init__(self, MainWindow):
         self.MainWindow = MainWindow
-
+        self.MainWindow.resize(800, 480)
         #widgets and spliter
         #self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.splitter_2 = QtWidgets.QSplitter(MainWindow)
@@ -21,6 +21,9 @@ class Ui_MainWindow():
         self.label_status = QtWidgets.QLabel(MainWindow)
         self.label_status_l = QtWidgets.QLabel(MainWindow)
         self.label_valoare = QtWidgets.QLabel(MainWindow)
+        #label logo
+        self.label = QtWidgets.QLabel(MainWindow)
+
         #butons
         self.pushButton_1 = QtWidgets.QPushButton(self.splitter)
         self.pushButton_2 = QtWidgets.QPushButton(self.splitter)
@@ -36,6 +39,7 @@ class Ui_MainWindow():
         self.pushButton_Sterge = QtWidgets.QPushButton(self.splitter_4)
         self.pushButton_Enter = QtWidgets.QPushButton(MainWindow)
         self.pushButton_Porneste = QtWidgets.QPushButton(MainWindow)
+        self.pushButton_Porneste_2 = QtWidgets.QPushButton(MainWindow)
 
         #texbox
         self.textEdit = QtWidgets.QTextEdit(MainWindow)
@@ -60,12 +64,19 @@ class Ui_MainWindow():
         self.pushButton_Porneste.setGeometry(QtCore.QRect(450, 150, 251, 101))
         self.pushButton_Porneste.setStyleSheet("background-color: rgb(255, 232, 117);")
         self.pushButton_Enter.setGeometry(QtCore.QRect(10, 330, 421, 51))
+        self.pushButton_Porneste_2.setGeometry(QtCore.QRect(450, 350, 251, 31))
+        self.pushButton_Porneste_2.setStyleSheet("background-color:rgb(206, 51, 46);")
         #pozition labels
         self.label_status.setGeometry(QtCore.QRect(520, 100, 51, 21))
         self.label_valoare.setGeometry(QtCore.QRect(460, 30, 231, 41))
         self.label_status_l.setGeometry(QtCore.QRect(450, 100, 71, 21))
+        #label logo set image
+        self.label.setGeometry(QtCore.QRect(460, 270, 241, 71))
+        self.label.setText("")
+        self.label.setPixmap(QtGui.QPixmap("../GBTapp/logo-gbt-2019.png"))
+
         #pozition texbox
-        self.textEdit.setGeometry(QtCore.QRect(10, 30, 421, 41))
+        self.textEdit.setGeometry(QtCore.QRect(10, 30, 421, 48))
         
         #set font
         font = QtGui.QFont()
@@ -86,6 +97,7 @@ class Ui_MainWindow():
         self.pushButton_Sterge.setFont(font)
         self.pushButton_point.setFont(font)
         self.pushButton_Enter.setFont(font)
+        self.textEdit.setFont(font)
         #font buton pornire
         font = QtGui.QFont()
         font.setFamily("Microsoft YaHei UI")
@@ -138,7 +150,8 @@ class Ui_MainWindow():
         self.pushButton_Porneste.setText(_translate("MainWindow", "PORNESTE UMPLERE"))
         self.label_status_l.setText(_translate("MainWindow", "Status:"))
         self.label_status.setText(_translate("MainWindow", "Oprit"))
-        self.label_valoare.setText(_translate("MainWindow", "Oprit"))
+        self.label_valoare.setText(_translate("MainWindow", "0"))
+        self.pushButton_Porneste_2.setText(_translate("MainWindow", "Conectare"))
 
     def texboxenter(self,b):
         t=b.text()
