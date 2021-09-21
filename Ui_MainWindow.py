@@ -3,6 +3,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 import sys
 import threading
+from PyQt5.QtCore import Qt
 
 class Ui_MainWindow():
     
@@ -10,7 +11,8 @@ class Ui_MainWindow():
 
     def __init__(self, MainWindow):
         self.MainWindow = MainWindow
-        self.MainWindow.resize(800, 480)
+        self.MainWindow.resize(720, 480)
+        MainWindow.setWindowFlags(Qt.WindowStaysOnTopHint | Qt.FramelessWindowHint)
         #widgets and spliter
         #self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.splitter_2 = QtWidgets.QSplitter(MainWindow)
@@ -40,6 +42,7 @@ class Ui_MainWindow():
         self.pushButton_Enter = QtWidgets.QPushButton(MainWindow)
         self.pushButton_Porneste = QtWidgets.QPushButton(MainWindow)
         self.pushButton_Porneste_2 = QtWidgets.QPushButton(MainWindow)
+        self.dropDownCell = QtWidgets.QComboBox(MainWindow)
 
         #texbox
         self.textEdit = QtWidgets.QTextEdit(MainWindow)
@@ -75,6 +78,8 @@ class Ui_MainWindow():
         self.label.setText("")
         self.label.setPixmap(QtGui.QPixmap("../GBTapp/logo-gbt-2019.png"))
 
+        #pozition for comboBox
+        self.dropDownCell.setGeometry(QtCore.QRect(10,390,421,31))
         #pozition texbox
         self.textEdit.setGeometry(QtCore.QRect(10, 30, 421, 48))
         
@@ -167,3 +172,9 @@ class Ui_MainWindow():
 
     def afiseazaInTimpReal(self,text):
         self.label_status.setText(text)
+
+    def addItemToDropDown(self,list):
+        self.dropDownCell.addItems(list)
+
+    def getSelectedCell(self):
+        return self.dropDownCell.currentText()
